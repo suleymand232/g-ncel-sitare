@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Okul Kıyafetimiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --bg-color: #dedede;
+            --box-bg: dimgray;
+            --text-color: #3f3f3f;
+            --heading-color: #dedede;
+            --link-color: #dedede;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --box-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --heading-color: #dedede;
+            --link-color: #dedede;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .kutu {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: var(--box-bg);
+            padding: 20px;
+            border-radius: 30px;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+
+        .imza {
+            text-align: center;
+            font-size: 14px;
+            color: #ccc;          
+            margin-top: 30px;     
+            font-style: italic;   
+        }
+
+        img {
+            width: 150px;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border-radius: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-left: 0;
+            margin-right: 0;
+            color: var(--heading-color);
+        }
+
+        h3 {
+            color: var(--heading-color);
+            font-weight: normal;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .forma {
+            width: 80% !important;
+            max-width: 500px !important;
+            height: auto !important;
+        } 
+
+        /* Karanlık Mod Butonu */
+        #darkModeToggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background-color: var(--box-bg);
+            color: var(--heading-color);
+            border: 2px solid var(--heading-color);
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <button id="darkModeToggle" onclick="geceModunuAcKapat()">🌙 Mod</button>
+
+    <p class="imza">Made by Süleyman</p>
+    <img src="ataturk.png" alt="meb">
+    <div class="kutu"> 
+        <h1>OKUL KIYAFETİMİZ</h1>
+        <hr>
+        <h2>MUMCULAR SİTARE ÖZKAN ÇOK PROGRAMLI ANADOLU LİSESİ</h2>
+        <hr>
+        <hr>
+        <img src="forma.jpg" alt="forma" class="forma">
+        <hr>
+        <h3>
+            Değerli velilerimiz ve kıymetli öğrencilerimiz, 6 Aralık 2024 tarihinde yapılan yönetmelik değişikliği ile <strong>OKUL KIYAFETLERİ ZORUNLU HALE GETİRİLMİŞTİR.</strong><br><br>
+            İlgili yönetmeliğe göre; Öğretmenler Kurulunda görüşülen ve okulumuzun Okul Aile Birliği Yönetim Kurulunca alınan kararlar çerçevesinde 2026-2027 Eğitim Öğretim Yılından itibaren geçerli olmak üzere okul formamızın:<br><br>
+            • <strong>Alt kıyafet:</strong> Düz siyah renkte, herhangi bir marka, çizgi, desen veya yazı içermeyen, keten yada kot tarzında pantolon (tayt ve vücut hatlarını belirgin şekilde ortaya koymayan kıyafetler olmasına)<br>
+            • <strong>Üst kıyafet:</strong> Polo yaka uzun kollu veya kısa kollu gri tişört olmasına karar verilmiştir.<br><br>
+            Okul kıyafetinin üzerinde herhangi marka, kurum veya kuruluşa ait yazı, logo amblem içeren kıyafetler kesinlikle giyilmeyecektir.<br>
+            Belirlenen kıyafet 4 yıl boyunca geçerli olacaktır.<br><br>
+            Belirlenen tişört (polo yaka) ve pantolon Ortaöğretim Kurumları Kılık Kıyafet Yönetmeliği’ne uygun ölçülerde olacaktır. (Rengi siyah da olsa; şort, crop, alt eşofman, derin yırtmaçlı veya diz üstü etek, yırtık, delikli, şeffaf kıyafetler, kolsuz tişört veya gömlek giymek Yönetmelik’e aykırıdır.)<br><br>
+            Bu kıyafet dışındaki giyilen çeşitli giysiler <strong>OKUL KIYAFETİ OLARAK DEĞERLENDİRİLMEYECEKTİR.</strong><br><br>
+            Okul güvenliği için önem arz eden okul kıyafeti kurallarına uymayan öğrencilerimiz hakkında Ortaöğretim Kurumları Yönetmeliğinin ilgili disiplin hükümleri uygulanacaktır.<br><br>
+            Değerli velilerimiz, yapmış olduğumuz açıklamalar kapsamında, öğrencilerinizin okul kıyafeti kurallarına riayet etmesi hususunun takibinin ve gereğinin yapılmasını rica ederiz.
+        </h3>
+    </div>
+
+    <script>
+        function geceModunuAcKapat() {
+            document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('darkModeToggle');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                btn.innerHTML = "☀️ Mod";
+                localStorage.setItem('theme', 'dark');
+            } else {
+                btn.innerHTML = "🌙 Mod";
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        window.onload = function() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+                const btn = document.getElementById('darkModeToggle');
+                if (btn) btn.innerHTML = "☀️ Mod";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DERS SAATLERİ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --bg-color: #dedede;
+            --box-bg: dimgray;
+            --text-color: #3f3f3f;
+            --heading-color: #dedede;
+            --link-color: #dedede;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --box-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --heading-color: #dedede;
+            --link-color: #dedede;
+        }
+
+        body {
+            text-align: center;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            -webkit-text-fill-color: var(--text-color);
+            margin: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .kutu {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: var(--box-bg);
+            padding: 20px;
+            border-radius: 30px;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+
+        h3, h1 {
+            color: var(--heading-color);
+            -webkit-text-fill-color: var(--heading-color);
+        }
+
+        a {
+            color: var(--link-color);
+            -webkit-text-fill-color: var(--link-color);
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            padding: 10px 0;
+            margin-left: 0px;
+        }
+
+        .imza {
+            text-align: center;
+            font-size: 14px;
+            color: #ccc;          
+            margin-top: 30px;     
+            font-style: italic;   
+        }
+                 
+        img {
+            width: 150px !important;    
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            margin: 15px auto !important;
+            border-radius: 20px;
+        }
+
+        
+        #darkModeToggle {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background-color: var(--box-bg);
+            color: var(--heading-color);
+            -webkit-text-fill-color: var(--heading-color);
+            border: 2px solid var(--heading-color);
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <button id="darkModeToggle" onclick="geceModunuAcKapat()">🌙 Mod</button>
+
+    <p class="imza">Made by Süleyman</p>
+    <img src="ataturk.png" alt="AtaturkResmi">
+    <div class="kutu">
+        <h3>MUMCULAR SİTARE ÖZKAN ÇOK PROGRAMLI ANADOLU LİSESİ</h3>
+        <h3>Ders Başlama ve Bitiş Saatleri</h3>
+        <hr>
+        <h1>Anadolu Lisesi Ders Başlangıç Saati: 07.40 Ders Bitiş Saati: 12.20</h1>
+        <hr>
+        <h1>Anadolu Meslek Lisesi<br>Ders Başlangıç Saati: 12.40<br>Ders Bitiş Saati: 17.55</h1>
+        <hr>
+        <a href="index.html">DAHA FAZLA BİLGİ İÇİN ANA MENÜYE DÖNÜN</a>
+    </div>
+
+    <script>
+        function geceModunuAcKapat() {
+            document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('darkModeToggle');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                btn.innerHTML = "☀️ Mod";
+                localStorage.setItem('theme', 'dark');
+            } else {
+                btn.innerHTML = "🌙 Mod";
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        window.onload = function() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+                const btn = document.getElementById('darkModeToggle');
+                if (btn) btn.innerHTML = "☀️ Mod";
+            }
+        }
+    </script>
+</body>
+</html>
